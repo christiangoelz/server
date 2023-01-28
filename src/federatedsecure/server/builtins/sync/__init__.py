@@ -10,7 +10,7 @@ def federatedsecure_register(registry):
         {
             "namespace": "federatedsecure",
             "plugin": "Sync",
-            "version": "0.5.3",
+            "version": "0.6.0",
             "microservice": "Barrier"
         },
         Barrier()
@@ -20,7 +20,7 @@ def federatedsecure_register(registry):
         {
             "namespace": "federatedsecure",
             "plugin": "Sync",
-            "version": "0.5.3",
+            "version": "0.6.0",
             "microservice": "Broadcast"
         },
         Broadcast()

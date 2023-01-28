@@ -9,7 +9,7 @@ def federatedsecure_register(registry):
         {
             "namespace": "federatedsecure",
             "plugin": "Util",
-            "version": "0.5.3",
+            "version": "0.6.0",
             "microservice": "KeyValueStorage"
         },
         KeyValueStorage()
