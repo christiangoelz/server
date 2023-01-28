@@ -1,3 +1,5 @@
+"""basic utility microservices for Federated Secure Computing"""
+
 from federatedsecure.server.builtins.util.kvstorage import KeyValueStorage
 
 

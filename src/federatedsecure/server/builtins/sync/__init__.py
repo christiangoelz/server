@@ -1,3 +1,5 @@
+"""basic synchronization microservices for Federated Secure Computing"""
+
 from federatedsecure.server.builtins.sync.barrier import Barrier
 from federatedsecure.server.builtins.sync.broadcast import Broadcast
 
