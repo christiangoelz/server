@@ -1,6 +1,6 @@
 """basic utility microservices for Federated Secure Computing"""
 
-from federatedsecure.server.builtins.util.kvstorage import KeyValueStorage
+from federatedsecure.services.util.kvstorage import KeyValueStorage
 
 
 def federatedsecure_register(registry):
