@@ -2,8 +2,8 @@
 
 import uuid as _uuid
 
-import federatedsecure.server.server.exceptions
-from federatedsecure.server.server.registry import Registry
+import federatedsecure.server.exceptions
+from federatedsecure.server.registry import Registry
 
 
 class Bus:
@@ -76,18 +76,18 @@ class Bus:
         """create a representation of an attribute of a representation"""
 
         if public and attribute_name[0] == '_':  # public access to private/hidden member
-            raise federatedsecure.server.server.exceptions.AttributeNotPublic(attribute_name)
+            raise federatedsecure.server.exceptions.AttributeNotPublic(attribute_name)
 
         try:
             obj = self.lut_uuid_to_repr[representation_uuid]
         except KeyError as key_error:
-            raise federatedsecure.server.server.exceptions.InvalidIdentifier("representation_uuid",
-                                                                             representation_uuid) from key_error
+            raise federatedsecure.server.exceptions.InvalidIdentifier("representation_uuid",
+                                                                      representation_uuid) from key_error
 
         try:
             pointer = getattr(obj, attribute_name)
         except KeyError as key_error:
-            raise federatedsecure.server.server.exceptions.AttributeNotFound(attribute_name) from key_error
+            raise federatedsecure.server.exceptions.AttributeNotFound(attribute_name) from key_error
 
         uuid = str(_uuid.uuid4())
         self.lut_uuid_to_repr[uuid] = pointer

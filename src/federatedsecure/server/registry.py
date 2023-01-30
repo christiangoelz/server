@@ -2,8 +2,8 @@
 
 import uuid as _uuid
 
-import federatedsecure.server.server.discovery
-import federatedsecure.server.server.exceptions
+import federatedsecure.server.discovery
+import federatedsecure.server.exceptions
 
 
 class Registry:
@@ -11,7 +11,7 @@ class Registry:
 
     def __init__(self):
         self.root_objects = {}
-        federatedsecure.server.server.discovery.discover_builtins_and_plugins(self)
+        federatedsecure.server.discovery.discover_builtins_and_plugins(self)
 
     def register(self, description, item):
         """register an item and its description"""
@@ -39,4 +39,4 @@ class Registry:
             else:
                 return uuid, item
 
-        raise federatedsecure.server.server.exceptions.RootObjectNotFound(requirements)
+        raise federatedsecure.server.exceptions.RootObjectNotFound(requirements)
