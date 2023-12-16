@@ -3,9 +3,22 @@ from assertions import TestAssertions
 from interface import TestInterface
 
 
+"""
+Tests the built-in microservice KeyValueStorage
+"""
+
+
 class TestKeyValueStorage(TestAssertions):
 
+    """
+    Tests the built-in microservice KeyValueStorage
+    """
+
     def test_key_value_storage(self):
+
+        """
+        Tests the built-in microservice KeyValueStorage
+        """
 
         interface = TestInterface()
         api = TestApi(interface=interface)
