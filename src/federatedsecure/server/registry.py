@@ -1,4 +1,5 @@
-"""the registry contains items that may be used as root items for representations"""
+"""the registry contains items that may
+be used as root items for representations"""
 
 import uuid as _uuid
 
@@ -28,7 +29,8 @@ class Registry:
         return result
 
     def get_representation(self, requirements):
-        """check requirements against descriptions and return a matching item if possible"""
+        """check requirements against descriptions
+        and return a matching item if possible"""
 
         for uuid, (description, item) in self.root_objects.items():
             for requirement in requirements:
@@ -39,4 +41,5 @@ class Registry:
             else:
                 return uuid, item
 
-        raise federatedsecure.server.exceptions.RootObjectNotFound(requirements)
+        raise federatedsecure.server.exceptions.\
+            RootObjectNotFound(requirements)

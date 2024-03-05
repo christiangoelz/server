@@ -7,7 +7,8 @@ from federatedsecure.server.registry import Registry
 
 
 class Bus:
-    """the bus stores representations of microservices and other server-side objects"""
+    """the bus stores representations of
+    microservices and other server-side objects"""
 
     def __init__(self):
         """initialize the bus"""
@@ -18,7 +19,8 @@ class Bus:
         if isinstance(arg, dict):
             if 'representation_uuid' in arg:
                 if arg['representation_uuid'] in self.lut_uuid_to_repr:
-                    return self.get_argument(self.lut_uuid_to_repr[arg['representation_uuid']])
+                    return self.get_argument(
+                        self.lut_uuid_to_repr[arg['representation_uuid']])
         return arg
 
     def get_arguments(self, body):
@@ -72,22 +74,27 @@ class Bus:
         """release a representation"""
         del self.lut_uuid_to_repr[representation_uuid]
 
-    def create_attribute(self, representation_uuid, attribute_name, public=False):
+    def create_attribute(self, representation_uuid,
+                         attribute_name, public=False):
         """create a representation of an attribute of a representation"""
 
-        if public and attribute_name[0] == '_':  # public access to private/hidden member
-            raise federatedsecure.server.exceptions.AttributeNotPublic(attribute_name)
+        # public access to private/hidden member
+        if public and attribute_name[0] == '_':
+            raise federatedsecure.server.exceptions.\
+                AttributeNotPublic(attribute_name)
 
         try:
             obj = self.lut_uuid_to_repr[representation_uuid]
         except KeyError as key_error:
-            raise federatedsecure.server.exceptions.InvalidIdentifier("representation_uuid",
-                                                                      representation_uuid) from key_error
+            raise federatedsecure.server.exceptions.\
+                InvalidIdentifier("representation_uuid",
+                                  representation_uuid) from key_error
 
         try:
             pointer = getattr(obj, attribute_name)
         except KeyError as key_error:
-            raise federatedsecure.server.exceptions.AttributeNotFound(attribute_name) from key_error
+            raise federatedsecure.server.exceptions.\
+                AttributeNotFound(attribute_name) from key_error
 
         uuid = str(_uuid.uuid4())
         self.lut_uuid_to_repr[uuid] = pointer

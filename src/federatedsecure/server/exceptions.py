@@ -71,14 +71,16 @@ class RootObjectNotFound(ApiError):
 
 
 class AttributeNotFound(ApiError):
-    """this exception is thrown when a member attribute of an object does not exist"""
+    """this exception is thrown when a member
+    attribute of an object does not exist"""
 
     def __init__(self, missing):
         super().__init__(404, f'attribute not available: {missing}')
 
 
 class AttributeNotPublic(ApiError):
-    """this exception is thrown when a hidden/private member attribute of an object is accessed"""
+    """this exception is thrown when a hidden/private
+    member attribute of an object is accessed"""
 
     def __init__(self, missing):
         super().__init__(403, f'attribute not public: {missing}')
